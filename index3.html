@@ -97,25 +97,9 @@
 
     const isSafari = /safari/.test(userAgent) && !knownBrowsers.some(pattern => pattern.test(userAgent));
 
-    if (isIOS && isSafari) {
-      // iOS 上の Safari: 自動リダイレクト
-      setTimeout(() => {
-        window.location.href = 'https://www.grail.bz/';
-      }, 500);
-    } else {
-      // その他のブラウザ（Androidを含む）: ボタンを表示
-      const button = document.getElementById('openAppButton');
-      document.getElementById('contentContainer').style.display = 'flex';
-
-
-      if(isAndroid){
-        setTimeout(() => {
-        window.location.href = 'intent://https://www.grail.bz#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.plazastyle.plazapoint;end';
-      }, 500);
-
-      }
-
-
+    // ボタンを表示
+    document.getElementById('contentContainer').style.display = 'flex';
+    const button = document.getElementById('openAppButton');
     button.addEventListener('click', function () {
       if (isAndroid) {
         window.location.href =
@@ -125,6 +109,20 @@
         window.location.href = 'https://www.grail.bz/';
       }
     });
+
+    if (isIOS && isSafari) {
+      // iOS 上の Safari: 自動リダイレクト
+      setTimeout(() => {
+        window.location.href = 'https://www.grail.bz/';
+      }, 500);
+    } else {
+      // その他のブラウザ
+
+      if(isAndroid){
+        setTimeout(() => {
+          window.location.href = 'intent://https://www.grail.bz#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.plazastyle.plazapoint;end';
+        }, 500);
+      }
     }
   </script>
 </body>
