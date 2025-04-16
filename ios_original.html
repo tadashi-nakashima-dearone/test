@@ -95,6 +95,7 @@
      /ucbrowser|ucweb|uc/ // UC Browser
    ];
    const isSafari = /safari/.test(userAgent) && !knownBrowsers.some(pattern => pattern.test(userAgent));
+   document.getElementById('contentContainer').style.display = 'flex';
  
    if (isIOS) {
      if (isSafari) {
