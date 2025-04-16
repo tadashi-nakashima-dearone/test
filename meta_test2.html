@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+    UserAgentのテスト
+
+-->
+
+<html>
+<head>
+    <title>Androidのアプリリンクのテスト</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3;URL=https://grail.bz">
+</head>
+
+<body>
+    <p>
+        <label>UserAgent：</label>
+    </p>
+    <p></p>
+    <p>
+        <span id="useragent"></span>
+    </p>
+    <script>
+        document.getElementById("useragent").innerText = window.navigator.userAgent.toLowerCase();
+        //document.getElementById("useragent").innerText = "test";
+        </script>
+    </body>
+</html>
+
+
