@@ -100,7 +100,8 @@
      if (isSafari) {
        // Safari: automatically open the app
        setTimeout(() => {
-         window.location.href = 'https://www.grail.bz/';
+        window.open('https://www.grail.bz/', '_blank');
+        //  window.location.href = 'https://www.grail.bz/';
        }, 3000);
      } else {
        // Other iOS browsers: show the button + border + description
