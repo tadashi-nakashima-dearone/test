@@ -22,8 +22,7 @@
     }
  
     .container {
-      display: none;
-      /* Only displayed when not Safari */
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -85,8 +84,6 @@
 
   <script>
     const redirectUrl='https://www.grail.bz/';
-    //const fallbackUrl='https://play.google.com/store/apps/details?id=com.plazastyle.plazapoint';
-    //const intentUrl='intent://' + redirectUrl + '#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;S.browser_fallback_url=' + fallbackUrl + ';end';
     const intentUrl='intent://' + redirectUrl + '#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;end';
     const userAgent = window.navigator.userAgent.toLowerCase() || '';
     const isIOS = /iphone|ipad|ipod/.test(userAgent);
@@ -108,16 +105,12 @@
 
     const isSafari = /safari/.test(userAgent) && !knownBrowsers.some(pattern => pattern.test(userAgent));
 
-    // ボタンを表示
-    document.getElementById('contentContainer').style.display = 'flex';
+    // ボタンへのURL設定
     const button = document.getElementById('openAppButton');
     button.addEventListener('click', function () {
       if (isAndroid) {
         // Android
         window.location.href = intentUrl;
-          // 'intent://' + redirectUrl + '#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;S.browser_fallback_url=' + fallbackUrl + ';end';
-          // 'intent://https://www.grail.bz#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.plazastyle.plazapoint;end';
-          // 'intent://https://www.grail.bz/#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;end';
       } else {
         // Android以外
         window.location.href = redirectUrl;
@@ -134,9 +127,6 @@
       // その他のブラウザ
       setTimeout(() => {
         window.location.href = intentUrl;
-        // window.location.href = 'intent://' + redirectUrl + '#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;S.browser_fallback_url=' + fallbackUrl + ';end';
-        // window.location.href = 'intent://https://www.grail.bz#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.plazastyle.plazapoint;end';
-        // window.location.href = 'intent://https://www.grail.bz/#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;end';
       }, 500);
     }
   </script>
