@@ -83,7 +83,7 @@
   </div>
 
   <script>
-    const redirectUrl='https://www.grail.bz/';
+    const redirectUrl='https://www.plazastyle.com/';
     const intentUrl='intent://' + redirectUrl + '#Intent;scheme=plazastyle.purchase;package=com.plazastyle.plazapoint;end';
     const userAgent = window.navigator.userAgent.toLowerCase() || '';
     const isIOS = /iphone|ipad|ipod/.test(userAgent);
@@ -110,7 +110,8 @@
     button.addEventListener('click', function () {
       if (isAndroid) {
         // Android
-        window.location.href = intentUrl;
+        // window.location.href = intentUrl;
+        window.location.href = redirectUrl;
       } else {
         // Android以外
         window.location.href = redirectUrl;
@@ -126,7 +127,8 @@
     } else if(isAndroid){
       // その他のブラウザ
       setTimeout(() => {
-        window.location.href = intentUrl;
+        // window.location.href = intentUrl;
+        window.location.href = redirectUrl;
       }, 500);
     }
   </script>
