@@ -118,19 +118,19 @@
       }
     });
 
-    // 自動リダイレクト
-    if (isIOS && isSafari) {
-      // iOS上のSafari
-      setTimeout(() => {
-        window.location.href = redirectUrl;
-      }, 500);
-    } else if(isAndroid){
-      // その他のブラウザ
-      setTimeout(() => {
-        // window.location.href = intentUrl;
-        window.location.href = redirectUrl;
-      }, 500);
-    }
+    // // 自動リダイレクト
+    // if (isIOS && isSafari) {
+    //   // iOS上のSafari
+    //   setTimeout(() => {
+    //     window.location.href = redirectUrl;
+    //   }, 500);
+    // } else if(isAndroid){
+    //   // その他のブラウザ
+    //   setTimeout(() => {
+    //     // window.location.href = intentUrl;
+    //     window.location.href = redirectUrl;
+    //   }, 500);
+    // }
   </script>
 </body>
  
