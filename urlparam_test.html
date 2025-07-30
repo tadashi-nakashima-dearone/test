@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+    UserAgentのテスト
+
+-->
+
+<html>
+<head>
+    <title>Androidのアプリリンクのテスト</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <!-- <p>
+        <label>UserAgent：</label>
+    </p>
+    <p></p>
+    <p>
+        <span id="useragent"></span>
+    </p> -->
+    <div class="text-area">このページのURLは「<span id="urlparam"></span>」です。</div>
+    <script>
+        // document.getElementById("useragent").innerText = window.navigator.userAgent.toLowerCase();
+        //document.getElementById("useragent").innerText = "test";
+        // var url = location.href;
+        // document.getElementById("urlparam").innerHTML = url;
+        // var url = location.search;
+        // document.getElementById("urlparam").innerHTML = url;
+        // let url = new URL(window.location.href);
+
+
+        // URLSearchParamsオブジェクトを取得
+        //let params = url.searchParams;
+        // document.getElementById("urlparam").innerText = params.get("url");
+
+        // urlを取得
+        let url = location.href;
+
+        let param_url = "";
+        let param_p = "";
+
+        // urlを「?」で分割
+        let params = url.split("?");
+        params.forEach(function(param){
+            // x=yを「=」で分割
+            let arr = param.split("=");
+            let key = arr[0];
+            let value = arr[1] === undefined ? "" : arr[1];
+            //console.log(key + ":" + value);
+            if(key.match("url") !== null ) { param_url = value; }
+            if(key.match("p") !== null) { param_p = value; }
+        });
+        console.log("param_url = " + param_url);
+        console.log("param_p = " + param_p);
+        
+        let new_url = param_url + "?p=" + param_p;
+        console.log("new_url : " + new_url);
+        //document.getElementById("urlparam").innerText = url_array[1];
+
+        </script>
+    </body>
+</html>
+
+
