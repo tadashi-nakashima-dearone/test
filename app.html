@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>ストアへ遷移します</title>
+    <meta name="robots" content="noindex,nofollow">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+</head>
+<body>
+
+    <script>
+        function launchApp() {
+            var IOS_STORE = 'https://apps.apple.com/jp/app/newdays%E3%82%A2%E3%83%97%E3%83%AA-jr%E6%9D%B1%E6%97%A5%E6%9C%AC%E3%81%AE%E9%A7%85%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8Bnewdays/id1505966916';
+            var ANDROID_SITE = 'https://play.google.com/store/apps/details?id=jp.j_retail&hl=ja';
+            var PC_SITE = 'https://retail.jr-cross.co.jp/newdays/app/';
+
+            var userAgent = navigator.userAgent.toLowerCase();
+
+            // iPhone端末ならApp Storeを開く。
+            if (userAgent.search(/iphone|ipad|ipod/) > -1) {
+                setTimeout(function() {
+                    location.href = IOS_STORE;
+                }, 500);
+            }
+            // Android端末ならGoogle Playを開く。
+            else if (userAgent.search(/android/) > -1) {
+                setTimeout(function() {
+                    location.href = ANDROID_SITE;
+                }, 500);
+            }
+            // その他・不明・PCなどの場合はサイトを開く。
+            else {
+                setTimeout(function() {
+                    document.location = PC_SITE;
+                }, 500);
+                
+            }
+        }
+
+        // ページ読み込み時に実行
+        window.onload = function() {
+            launchApp();
+        }
+    </script>
+</body>
+</html>
